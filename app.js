@@ -12,20 +12,14 @@ app.set("view engine", "ejs");
 // MIDDLEWARE
 app.use(express.static("public"));
 
+// body parser
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // ROUTES
-app.use("/post/createPost", require("./routes/posts"));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/feed", (req, res) => {
-  res.render("feed");
-});
-
-app.get("/profile", (req, res) => {
-  res.render("profile");
-});
+app.use("/", require("./routes/main"));
+app.use("/post", require("./routes/posts"));
 
 const PORT = process.env.PORT || 3050;
 
