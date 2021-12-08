@@ -3,6 +3,53 @@
   <%- include('./partials/head.ejs') -%>
   <body>
     <%- include('./partials/nav.ejs') -%>
-    <h1>My feed!</h1>
+    <main class="feed-main">
+      
+      <div class="feed_container">
+        <h1>My feed</h1>
+        <section>
+          <form
+            action="/post/createPost"
+            method="POST"
+          >
+            <div>
+              <label for="newPost" class="form-label">New Post</label>
+              <input class="form-control" id="newPost" name="newPost" type="text"></input>
+              <!-- <div>
+                <label for="imgUpload" class="form-label">New Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageUpload"
+                  name="file"
+                />
+              </div> -->
+              <button type="submit" class="btn btn-primary" value="Upload">
+                Submit
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="all-posts_container">
+          <!-- <div class="feed-post">
+            <p>This is the start of your feed. Post something new!</p>
+          </div> -->
+          
+          <% posts.forEach( el => { %>
+          <div class="feed-post">
+            <p><%= el.text %></p>
+            <div class="btn-container ">
+              <button class="post-btn post-del">del</button>
+              <button class="post-btn post-like">like</button>
+            </div>
+            <% }) %>
+           
+          </div>
+          
+          
+        </section>
+      </div>
+    </main>
   </body>
 </html>
