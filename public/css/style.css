@@ -34,4 +34,40 @@ select {
 
 nav {
   border: 2px solid rgba(187, 219, 245);
+  text-align: right;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: right;
+}
+
+.nav-item {
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+.feed-main {
+  display: flex;
+  justify-content: center;
+}
+
+.all-posts_container {
+  margin-top: 2rem;
+  border: 1px solid red;
+  max-width: 90%;
+}
+
+.feed-post {
+  /* border: 1px solid rgb(123, 144, 160); */
+  margin-bottom: 5rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: right;
+}
+
+.post-btn {
+  margin-right: 0.3rem;
 }
