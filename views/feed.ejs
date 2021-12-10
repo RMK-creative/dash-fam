@@ -42,7 +42,7 @@
             <div class="btn-container ">
               <form action="/post/deletePost/<%= el.id %>?_method=DELETE" method="POST">
               <button class="btn">del</button></form>
-              <p>Likes: <%= el.likes %> </p>
+              <form action="/post/likePost/<%= el.id %>?_method=PUT" method="POST"><button class="btn">♡ <%= el.likes %> </button></form>
             </div>
             <% }) %>
            
