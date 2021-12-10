@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const connectDB = require("./config/database");
+const methodOverride = require("method-override");
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -11,6 +12,7 @@ app.set("view engine", "ejs");
 
 // MIDDLEWARE
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 // body parser
 app.use(express.urlencoded({ extended: true }));
