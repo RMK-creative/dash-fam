@@ -40,8 +40,9 @@
           <div class="feed-post">
             <p><%= el.text %></p>
             <div class="btn-container ">
-              <button class="post-btn post-del">del</button>
-              <button class="post-btn post-like">like</button>
+              <form action="/post/deletePost/<%= el.id %>?_method=DELETE" method="POST">
+              <button class="btn">del</button></form>
+              <p>Likes: <%= el.likes %> </p>
             </div>
             <% }) %>
            
