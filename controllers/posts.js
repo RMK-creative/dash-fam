@@ -14,6 +14,17 @@ module.exports = {
       console.log(err);
     }
   },
+  likePost: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        { $inc: { likes: 1 } }
+      );
+      res.redirect("/feed");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   deletePost: async (req, res) => {
     try {
       let post = await Post.findById({ _id: req.params.id });
@@ -21,7 +32,6 @@ module.exports = {
       res.redirect("/feed");
     } catch (err) {
       console.log(err);
-      res.redirect("/feed");
     }
   },
 };
