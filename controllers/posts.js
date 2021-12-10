@@ -6,16 +6,22 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       await Post.create({
-        text: req.body.text,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
+        text: req.body.newPost,
         likes: 0,
-        user: req.user.id,
       });
-      console.log("New post added");
       res.redirect("/feed");
-    } catch (error) {
+    } catch (err) {
       console.log(err);
+    }
+  },
+  deletePost: async (req, res) => {
+    try {
+      let post = await Post.findById({ _id: req.params.id });
+      await Post.deleteOne({ _id: req.params.id });
+      res.redirect("/feed");
+    } catch (err) {
+      console.log(err);
+      res.redirect("/feed");
     }
   },
 };
