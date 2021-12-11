@@ -32,6 +32,8 @@ module.exports = {
   deletePost: async (req, res) => {
     try {
       let post = await Post.findById({ _id: req.params.id });
+      // delete img from cloudinary
+      await cloudinary.uploader.destroy(post.cloudinaryId);
       await Post.deleteOne({ _id: req.params.id });
       res.redirect("/feed");
     } catch (err) {
