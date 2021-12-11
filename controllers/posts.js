@@ -1,12 +1,16 @@
-const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
-// const { result } = require("lodash");
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
   createPost: async (req, res) => {
     try {
+      // upload img to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+
       await Post.create({
         text: req.body.newPost,
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
         likes: 0,
       });
       res.redirect("/feed");
