@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const PostSchema = new mongoose.Schema({
   text: {
     type: String,
+    require: true,
   },
   image: {
     type: String,
   },
-  cloudinaryID: {
+  cloudinaryId: {
     type: String,
   },
   likes: {
