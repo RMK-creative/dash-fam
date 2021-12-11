@@ -11,21 +11,22 @@
           <form
             action="/post/createPost"
             method="POST"
+            enctype="multipart/form-data"
           >
             <div>
-              <label for="newPost" class="form-label">New Post</label>
-              <input class="form-control" id="newPost" name="newPost" type="text"></input>
-              <!-- <div>
-                <label for="imgUpload" class="form-label">New Image</label>
+              <label for="newPost" class="form-label"></label>
+              <input class="form-control" id="newPost" name="newPost" type="text" placeholder="what's on your mind?"></input>
+              <div>
+                <label for="imgUpload" class="form-label">Add an image</label>
                 <input
                   type="file"
                   class="form-control"
                   id="imageUpload"
                   name="file"
                 />
-              </div> -->
+              </div>
               <button type="submit" class="btn btn-primary" value="Upload">
-                Submit
+                Post
               </button>
             </div>
           </form>
